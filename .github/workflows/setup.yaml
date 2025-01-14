@@ -1,0 +1,14 @@
+name: setup
+
+on:
+  workflow_call
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone repo
+      uses: actions/checkout@v4
+    - name: set up terraform
+      uses: hashicorp/setup-terraform@v1
+    - name: Initialise
+      run: terraform init
