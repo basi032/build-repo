@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
-  plan:
-    needs: checkov
-    runs-on: ubuntu-latest 
-    steps:
-      - run: echo "Hello"
   checkov:
     needs: setup
     runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
+  plan:
+    needs: checkov
+    runs-on: ubuntu-latest 
     strategy:
       fail-fast: false
       matrix:
