@@ -5,8 +5,12 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
+  startup:
+    runs-on: ubuntu-latest 
+    steps:
+      - run: echo "Hello"
   setup:
-    needs: [ build, docker ]
+    needs: [ build, docker, startup ]
     runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
@@ -17,6 +21,7 @@ jobs:
       - run: echo "Hello"
   plan:
     needs: checkov
+    if: success()
     runs-on: ubuntu-latest 
     strategy:
       fail-fast: false
@@ -44,6 +49,7 @@ jobs:
       - run: echo "Hello"
   dockerise:
     needs: trivy
+    if: seccess()
     runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
