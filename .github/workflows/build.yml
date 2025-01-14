@@ -11,9 +11,7 @@ jobs:
       - run: echo "Hello"
   setup:
     needs: [ build, docker, startup ]
-    runs-on: ubuntu-latest 
-    steps:
-      - run: echo "Hello"
+    uses: ./.github/workflows/setup.yaml
   checkov:
     needs: setup
     runs-on: ubuntu-latest
