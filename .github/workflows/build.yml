@@ -49,7 +49,7 @@ jobs:
       - run: echo "Hello"
   dockerise:
     needs: trivy
-    if: seccess()
+    if: success()
     runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
