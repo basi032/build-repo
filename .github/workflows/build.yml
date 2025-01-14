@@ -26,7 +26,7 @@ jobs:
       matrix:
         envi: [ dev, stage, prod ]
     steps:
-      - run: echo ${{ matrix.envi }}
+      - run: terraform init
   apply:
     needs: plan
     runs-on: ubuntu-latest 
