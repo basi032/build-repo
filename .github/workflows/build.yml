@@ -1,56 +1,27 @@
 on:
   - push
-jobs:
+jobs: 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - run: echo "Hello"
-  startup:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "hello"
   setup:
-    needs: [ build, docker ]
-    uses: basi032/shared-workflows/.github/workflows/setup.yaml@main
-  checkov:
-    needs: setup
-    uses: basi032/shared-workflows/.github/workflows/test.yaml@main
+    runs-on: ubuntu-latest 
+    steps:
+      - run: echo "Hello"
+  sast:
+    runs-on: ubuntu-latest 
+    steps:
+      - run: echo "Hello"
   plan:
-    needs: [ checkov, startup ]
-    if: success()
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        envi: [ dev, stage, prod ]
+    runs-on: ubuntu-latest 
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: test.tf
-      - run: terraform init
-
+      - run: echo "Hello"
   apply:
-    needs: plan
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        envi: [dev, stage, prod]
+    runs-on: ubuntu-latest 
     steps:
-      - run: echo ${{ matrix.envi }}
+      - run: echo "Hello"
   docker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
-      - run: echo "hello"
-  trivy:
-    needs: [ docker, setup ]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "hello"
-  dockerise:
-    needs: trivy
-    if: success()  # Runs if previous job was successful
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "hello"
+      - run: echo "Hello"
