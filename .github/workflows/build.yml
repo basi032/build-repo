@@ -12,9 +12,13 @@ jobs:
       - run: echo "Hello"
   checkov:
     needs: setup
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        envi: [ dev, stage, prod ]
     steps:
-      - run: echo "Hello"
+      - run: echo ${{ matrix.envi }}
   plan:
     needs: checkov
     runs-on: ubuntu-latest 
