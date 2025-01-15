@@ -13,7 +13,7 @@ jobs:
     - name: Initialise Terraform
       run: terraform init
     - name: Upload
-      uses: actions/upload-artifact@v2.321.0
+      uses: actions/upload-artifact@v2
       with:
         name: test.tf
         path: test.tf
