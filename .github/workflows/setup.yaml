@@ -12,8 +12,8 @@ jobs:
       uses: hashicorp/setup-terraform@v1
     - name: Initialise
       run: terraform init
-    - name: Upload
-      uses: actions/upload-artifact@v1
-      with:
-        name: test.tf
-        path: test.tf
+    #- name: Upload
+      #uses: actions/upload-artifact@v1
+      #with:
+        #name: test.tf
+        #path: test.tf
