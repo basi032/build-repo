@@ -10,8 +10,7 @@ jobs:
       uses: actions/checkout@v4
     - name: set up terraform
       uses: hashicorp/setup-terraform@v3.1.2
-    - name: Initialise
-      shell: bash
+    - name: Initialise Terraform
       run: terraform init
     - name: Upload
       uses: actions/upload-artifact@v4.2.2
